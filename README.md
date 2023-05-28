@@ -1,13 +1,17 @@
-# Docker Image PHP-FPM
+# Docker Image PHP and Nginx
 
 -   Base image: `webdevops/php`
--   OS image: Alpine Linux v3.18
+-   OS image: Alpine Linux v3.16 & v3.18
 
-PHP Version:
+PHP & Nginx (stable) Version:
 
--   8.2
--   8.1
--   7.4
+-   PHP: 8.2 & NGINX: 1.24.0
+-   PHP: 8.1 & NGINX: 1.24.0
+-   PHP: 7.4 & NGINX: 1.22.1
+
+**PHP** Socket port: `127.0.0.1:9000`
+
+**Nginx** open port: `80` and `443`
 
 ## Custum stuff
 
