@@ -3,20 +3,15 @@ version: "3.7"
 services:
   application:
     image: docker.io/asapdotid/php-nginx:8.1
-    expose:
-      - 80
+    ports:
+      - 80:80
     networks:
       - proxy
     environment:
       - PHP_POST_MAX_SIZE=100M
       - PHP_UPLOAD_MAX_FILESIZE=100M
-      - WEB_DOCUMENT_ROOT=/app/public
     volumes:
       - ./www:/app
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.portainer.entrypoints=http
-      - traefik.http.routers.portainer.rule=Host(`app.jogjascript.com`)
 
 networks:
   proxy:
