@@ -12,7 +12,7 @@ services:
       - PHP_UPLOAD_MAX_FILESIZE=100M
       - WEB_DOCUMENT_ROOT=/app/public
     volumes:
-      - /home/asap/Projects/wilopo/apps/office-v3:/app
+      - ./www:/app
     labels:
       - traefik.enable=true
       - traefik.http.routers.portainer.entrypoints=http
