@@ -12,12 +12,14 @@ services:
       - PHP_UPLOAD_MAX_FILESIZE=100M
       # uncomment for laravel
       # - WEB_DOCUMENT_ROOT=/app/public
+      - WEB_ALIAS_DOMAIN=app.jogjascript.com
     volumes:
       - ./www:/app
     # proxy with traefik
     # https://github.com/asapdotid/dcc-traefik
     labels:
       - traefik.enable=true
+      - traefil.docker.network=proxy
       - traefik.http.routers.portainer.entrypoints=http
       - traefik.http.routers.portainer.rule=Host(`app.jogjascript.com`)
 
