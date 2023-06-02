@@ -18,6 +18,55 @@ PHP & Nginx (stable) Version:
 -   Add composer entrypoint (composer.json) base of app env `development` or `production`
 -   Timezone set to `Asia/Jakarta`
 
+## To Do's
+
+-   ✅ Manual build Docker image
+-   ✅ Manual publish Docker image
+-   ⬜ Automatic build Docker image (GitHub workflows)
+-   ⬜ Automatic publish Docker image (GitHub workflows)
+
+## Makefile Commands
+
+Helping utility commands for simple build and push Docker image.
+
+### Help command:
+
+```bash
+make help
+```
+
+### Build docker image:
+
+```bash
+make build VER=8.2
+```
+
+Or
+
+```bash
+make build VER=8.2 TAG=latest
+```
+
+### Publish docker image to docker hub:
+
+Before publish image, first login to docker hub via cli:
+
+```bash
+docker login
+```
+
+Publish docker image:
+
+```bash
+make push VER=8.2
+```
+
+Or
+
+```bash
+make push VER=8.2 TAG=latest
+```
+
 ## Image Environment
 
 ### PHP modules
