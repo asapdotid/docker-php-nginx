@@ -31,6 +31,7 @@ MAKEFLAGS += --no-builtin-rules
 -include .make/.env
 
 # Common variable to pass arbitrary options to targets
+VER?=
 TAG?=
 
 # @see https://www.thapaliya.com/en/writings/well-documented-makefiles/
