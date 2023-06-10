@@ -13,9 +13,9 @@ ENV PHP_DATE_TIMEZONE=${TIMEZONE}
 ENV APPLICATION_ENV=production
 ENV SKIP_COMPOSER=false
 
-COPY src/php/7.4/conf/ /opt/docker/
-COPY src/php/7.4/html/errors/ /var/www/errors/
-COPY src/php/7.4/www/ $CONTAINER_WORKDIR_PATH/
+COPY src/php/8.2/conf/ /opt/docker/
+COPY src/php/8.2/html/errors/ /var/www/errors/
+COPY src/php/8.2/www/ $CONTAINER_WORKDIR_PATH/
 
 # set timezone
 RUN ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime && echo $TIMEZONE > /etc/timezone
