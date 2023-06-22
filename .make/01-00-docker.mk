@@ -22,8 +22,9 @@ endif
 # Run Build Docker Image
 DOCKER_BUILD_COMMAND:= \
     docker buildx build \
+	--platform linux/amd64,linux/arm64 \
     -f $(DOCKER_BUILD_IMAGE_FILE) \
-	-t $(TAGGING) .
+	-t $(TAGGING) --push .
 
 # Run Push Docker Image
 DOCKER_PUSH_COMMAND:= \

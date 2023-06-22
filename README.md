@@ -3,6 +3,11 @@
 -   Base image: `webdevops/php`
 -   OS image: Alpine Linux v3.16 & v3.18
 
+Setup docker image multiple platform [Docs](https://docs.docker.com/build/building/multi-platform/)
+
+-   amd64
+-   arm64
+
 PHP & Nginx (stable) Version:
 
 -   PHP: 8.2 & NGINX: 1.24.0
