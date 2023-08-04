@@ -3,7 +3,12 @@
 -   Base image: `webdevops/php`
 -   OS image: Alpine Linux v3.16 & v3.18
 
-Setup docker image multiple platform [Docs](https://docs.docker.com/build/building/multi-platform/)
+Setup docker image multiple platform:
+
+-   [Multi-platform images](https://docs.docker.com/build/building/multi-platform/)
+-   [Docker container driver](https://docs.docker.com/build/drivers/docker-container/)
+
+## Platform build images:
 
 -   amd64
 -   arm64
@@ -25,6 +30,7 @@ PHP & Nginx (stable) Version:
 
 ## To Do's
 
+-   ✅ Prepare Docker buildx setup
 -   ✅ Manual build Docker image
 -   ✅ Manual publish Docker image
 -   ⬜ Automatic build Docker image (GitHub workflows)
@@ -40,13 +46,19 @@ Helping utility commands for simple build and push Docker image.
 make help
 ```
 
-### Build docker image:
+### Build Multi-platform peparation:
 
 ```bash
-make build VER=8.2
+make prepare
 ```
 
-Or
+### Building multi-platform images (build & push):
+
+```bash
+make build VER=8.2 TAG=8.2
+```
+
+or
 
 ```bash
 make build VER=8.2 TAG=latest
@@ -70,6 +82,12 @@ Or
 
 ```bash
 make push VER=8.2 TAG=latest
+```
+
+### Docker inspect the image:
+
+```bash
+make inspect VER=7.4 TAG=7.4
 ```
 
 ## Image Environment
