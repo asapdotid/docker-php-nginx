@@ -24,18 +24,33 @@ DOCKER_BUILD_COMMAND:= \
     docker buildx build \
 	--platform ${DOCKER_IMAGE_PLATFORM} \
     -f $(DOCKER_BUILD_IMAGE_FILE) \
-	-t $(TAGGING) --push .
+	-t $(TAGGING) \
+	--push .
 
 # Run Push Docker Image
 DOCKER_PUSH_COMMAND:= \
 	docker push $(DOCKER_REGISTRY)/$(DOCKER_NAMESPACE)/$(DOCKER_IMAGE_NAME):$(TAG)
 
+# Run inspect Docker Image
+DOCKER_INSPECT_COMMAND:= \
+	docker buildx imagetools inspect $(DOCKER_REGISTRY)/$(DOCKER_NAMESPACE)/$(DOCKER_IMAGE_NAME):$(TAG)
+
 ##@ [Docker]
 
+.PHONY: prepare
+prepare: ## Docker setup prepare buildx multiplatform
+	@$(DOCKER_INSTALL_BIN_FMT)
+	@$(DOCKER_BUILDX_MULTIPLATFORM_CLEAN)
+	@$(DOCKER_BUILDX_MULTIPLATFORM_SETUP)
+
 .PHONY: build
-build: ## Docker build image with arguments VER="8.1" or with TAG=latest
+build: ## Docker build the image with arguments VER="8.1" or with TAG=latest
 	@$(DOCKER_BUILD_COMMAND)
 
 .PHONY: push
-push: ## Docker push image with arguments VER="8.1" or with TAG=latest
+push: ## Docker push the image with arguments VER="8.1" or with TAG=latest
 	@$(DOCKER_PUSH_COMMAND)
+
+.PHONY: inspect
+inspect: ## Docker inspect the image with arguments VER="8.1" or with TAG=latest
+	@$(DOCKER_INSPECT_COMMAND)
