@@ -1,7 +1,7 @@
 # Docker Image PHP and Nginx
 
 -   Base image: `webdevops/php`
--   OS image: Alpine Linux v3.16 & v3.18
+-   OS image: Alpine Linux v3.16 & v3.20
 
 Setup docker image multiple platform:
 
@@ -15,9 +15,10 @@ Setup docker image multiple platform:
 
 PHP & Nginx (stable) Version:
 
--   PHP: 8.2 & NGINX: 1.24.0
--   PHP: 8.1 & NGINX: 1.24.0
--   PHP: 7.4 & NGINX: 1.22.1
+-   PHP: 8.3 & NGINX: 1.24.0 (Alpine Linux 3.20)
+-   PHP: 8.2 & NGINX: 1.24.0 (Alpine Linux 3.20)
+-   PHP: 8.1 & NGINX: 1.24.0 (Alpine Linux 3.20)
+-   PHP: 7.4 & NGINX: 1.22.1 (Alpine Linux 3.16)
 
 **PHP** Socket port: `127.0.0.1:9000`
 
