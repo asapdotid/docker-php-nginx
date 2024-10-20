@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Create tmp dir for nginx
 mkdir -p /var/tmp/nginx/
 

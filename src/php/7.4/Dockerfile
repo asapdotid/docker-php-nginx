@@ -5,8 +5,7 @@ ENV WEB_DOCUMENT_ROOT=${CONTAINER_WORKDIR_PATH} \
     WEB_DOCUMENT_INDEX=index.php \
     WEB_ALIAS_DOMAIN=*.local \
     WEB_PHP_TIMEOUT=600 \
-    WEB_PHP_SOCKET=""
-ENV WEB_PHP_SOCKET=127.0.0.1:9000
+    WEB_PHP_SOCKET=127.0.0.1:9000
 ENV SERVICE_NGINX_CLIENT_MAX_BODY_SIZE="80m"
 ENV TIMEZONE=Asia/Jakarta
 ENV PHP_DATE_TIMEZONE=${TIMEZONE}
@@ -21,11 +20,8 @@ COPY src/php/7.4/www/ $CONTAINER_WORKDIR_PATH/
 RUN ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime && echo $TIMEZONE > /etc/timezone
 
 RUN set -x \
-    # Install nginx
-    && apk-install \
-    nginx \
-    && docker-run-bootstrap \
-    && docker-image-cleanup
+    && apk-install nginx \
+    && docker-run-bootstrap
 
 EXPOSE 80 443
 WORKDIR $CONTAINER_WORKDIR_PATH
