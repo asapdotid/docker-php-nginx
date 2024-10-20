@@ -51,8 +51,8 @@ jobs:
       - name: Export digest
         run: |
           mkdir -p /tmp/digests
-          digest="7_4-${{ steps.build.outputs.digest }}"
-          touch "/tmp/digests/${digest#sha256:}"
+          digest="${{ steps.build.outputs.digest }}"
+          touch "/tmp/digests/7_4-${digest#sha256:}"
       - name: Upload digest
         uses: actions/upload-artifact@v4
         with:
