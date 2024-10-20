@@ -5,9 +5,14 @@ ENV WEB_DOCUMENT_ROOT=${CONTAINER_WORKDIR_PATH} \
     WEB_DOCUMENT_INDEX=index.php \
     WEB_ALIAS_DOMAIN=*.local \
     WEB_PHP_TIMEOUT=600 \
+<<<<<<< HEAD
     WEB_PHP_SOCKET=""
 ENV WEB_PHP_SOCKET=127.0.0.1:9000
 ENV SERVICE_NGINX_CLIENT_MAX_BODY_SIZE="50m"
+=======
+    WEB_PHP_SOCKET=127.0.0.1:9000
+ENV SERVICE_NGINX_CLIENT_MAX_BODY_SIZE="80m"
+>>>>>>> develop
 ENV TIMEZONE=Asia/Jakarta
 ENV PHP_DATE_TIMEZONE=${TIMEZONE}
 ENV APPLICATION_ENV=production
@@ -23,8 +28,12 @@ COPY src/php/8.3/www/ $CONTAINER_WORKDIR_PATH/
 
 # Install nginx
 RUN set -x \
+<<<<<<< HEAD
     && apk-install \
     nginx \
+=======
+    && apk-install nginx \
+>>>>>>> develop
     && docker-run-bootstrap
 
 # Expose Ports.
