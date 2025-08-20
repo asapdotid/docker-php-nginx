@@ -7,7 +7,7 @@
 # $(DOCKER_IMAGE_ENV)  -------------------------^        	local
 # $(DOCKER_IMAGE_TAG)  --------------------------------^	latest
 
-DOCKER_DIR:=./src
+DOCKER_DIR:=${PWD}/src
 BUILD_SERVICE_NAME:=php
 DOCKER_BUILD_IMAGE_FILE:=$(DOCKER_DIR)/$(BUILD_SERVICE_NAME)/$(VER)/Dockerfile
 
@@ -25,7 +25,7 @@ DOCKER_BUILD_COMMAND:= \
 	--platform ${DOCKER_IMAGE_PLATFORM} \
     -f $(DOCKER_BUILD_IMAGE_FILE) \
 	-t $(TAGGING) \
-	--push .
+	${DOCKER_BUILD_ARGS} .
 
 # Run Push Docker Image
 DOCKER_PUSH_COMMAND:= \
