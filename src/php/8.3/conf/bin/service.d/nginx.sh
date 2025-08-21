@@ -3,6 +3,7 @@
 # Init vars
 if [[ -z "$SERVICE_NGINX_OPTS" ]]; then SERVICE_NGINX_OPTS=""; fi
 
+# shellcheck source=/dev/null
 source /opt/docker/bin/config.sh
 
 includeScriptDir "/opt/docker/bin/service.d/nginx.d/"
