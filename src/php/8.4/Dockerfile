@@ -1,4 +1,5 @@
-FROM webdevops/php:8.4-alpine
+ARG PHP_VERSION=8.4-alpine
+FROM webdevops/php:${PHP_VERSION}
 
 ENV TIMEZONE=Asia/Jakarta
 ENV APPLICATION_ENV=production
